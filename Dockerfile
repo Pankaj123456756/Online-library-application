@@ -8,7 +8,7 @@ COPY frontend/ ./
 RUN npm run build
 
 # Backend stage
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jdk
 
 WORKDIR /app
 

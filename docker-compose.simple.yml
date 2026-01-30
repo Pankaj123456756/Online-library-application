@@ -16,7 +16,9 @@ services:
       - library-network
 
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.simple
     container_name: library-app
     ports:
       - "8080:8080"

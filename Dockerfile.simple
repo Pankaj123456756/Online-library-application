@@ -1,0 +1,19 @@
+# Simple Dockerfile for Spring Boot only
+FROM eclipse-temurin:17-jdk-alpine
+
+WORKDIR /app
+
+# Install Maven
+RUN apk add --no-cache maven
+
+# Copy all backend files
+COPY backend/ ./backend/
+
+# Build the application
+RUN cd backend && mvn clean package -DskipTests
+
+# Expose port
+EXPOSE 8080
+
+# Run the application
+CMD ["java", "-jar", "backend/target/library-management-1.0.0.jar"]
